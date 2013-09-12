@@ -8,7 +8,7 @@ module Strano
     # url - The SSH URL of the git repository that this local repo is cloned from.
     def initialize(url)
       @ssh_url = url
-      @user_name, @repo_name = url.scan(/.+:(?:(.+)\/(.+))\.git$/).flatten
+      @user_name, @repo_name = url.scan(/.+:(?:(.+)\/(.+?))(\.git)?$/).flatten[0..1]
     end
 
     # Clone a remote repo at the given url.
